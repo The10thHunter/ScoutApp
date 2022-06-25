@@ -27,10 +27,28 @@
             <label for="scout_name">Scout Name: </label>
             <input type="text" id="scout_name" name="scoutName">
             <label for="team_number">Team Number:</label>
-            <input type="text" id="team_number" name="teamNumber">
+            <input type="number" id="team_number" name="teamNumber">
             <label for="match_number">Match Number:</label>
-            <input type="text" id="match_number" name="matchNumber"><br>
-        </div> 
+            <input type="number" id="match_number" name="matchNumber">
+            <label for="alliance_color">Alliance Color:</label>
+            <select id="alliance_color">
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+            </select>
+        </div> <br>
+
+        <div class="start_info">
+            <label for="robot_present">Robot Present in Match:</label>
+            <select id="robot_present">
+                <option value="yes">Yes</option>
+                <option value="not">No</option>
+            </select> 
+            <label for="exited_tarmac">Exited Tarmac:</label>
+            <select id="exited_tarmac">
+                <option value="yes">Yes</option>
+                <option value="not">No</option>
+            </select>
+        </div><br>
     
         <div class="auton">
             <h2>Autonomous Period</h2>
@@ -48,7 +66,7 @@
                     <h3 id="auton_low"></h3><br>
                 </div>
             </div>
-        </div> 
+        </div> <br>
     
         <div class="teleop">
             <h2>Teleoperated Period</h2>
@@ -66,7 +84,7 @@
                     <h3 id="teleop_low"></h3><br>
                 </div>
             </div>
-        </div> 
+        </div> <br>
 
         <div class="other">
             <h2>Scoring Position</h2>
@@ -101,7 +119,7 @@
                 <input type="checkbox" id="transversal" name="Transversal">
 
             </div>
-        </div> 
+        </div> <br>
 
         <div class="flags">
             <h2>Fouls and Flags <button id="reset_flags">Reset</button></h2>
@@ -113,8 +131,7 @@
             <button id="opposing">Scored Opposing Cargo</button>
             <button id="drivetrain">Broken Drivetrain</button>
             <button id="defense">Played Defense</button>
-            <br><br>
-        </div> 
+        </div> <br>
 
         <div>
             <button id="generate_qr">Generate QR Code</button>
