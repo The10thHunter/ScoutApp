@@ -13,17 +13,17 @@ var auton_low_scored = 0;
 var teleop_high_scored = 0;
 var teleop_low_scored = 0;
 
-document.getElementById("increment_auton_high").addEventListener("click", function(){auton_high_scored++; autonHigh.value = auton_high_scored;});
-document.getElementById("decrement_auton_high").addEventListener("click", function(){auton_high_scored--; autonHigh.value = auton_high_scored;});
+document.getElementById("increment_auton_high").addEventListener("click", function(){auton_high_scored++; autonHigh.innerHTML = auton_high_scored; });
+document.getElementById("decrement_auton_high").addEventListener("click", function(){auton_high_scored--; autonHigh.innerHTML = auton_high_scored;});
 
-document.getElementById("increment_auton_low").addEventListener("click", function(){auton_low_scored++; autonLow.value = auton_low_scored;});
-document.getElementById("decrement_auton_low").addEventListener("click", function(){auton_low_scored--; autonLow.value = auton_low_scored;});
+document.getElementById("increment_auton_low").addEventListener("click", function(){auton_low_scored++; autonLow.innerHTML = auton_low_scored;});
+document.getElementById("decrement_auton_low").addEventListener("click", function(){auton_low_scored--; autonLow.innerHTML = auton_low_scored;});
 
-document.getElementById("increment_teleop_high").addEventListener("click", function(){teleop_high_scored++; teleopHigh.value = teleop_high_scored;});
-document.getElementById("decrement_teleop_high").addEventListener("click", function(){teleop_high_scored--; teleopHigh.value = teleop_high_scored;});
+document.getElementById("increment_teleop_high").addEventListener("click", function(){teleop_high_scored++; teleopHigh.innerHTML = teleop_high_scored;});
+document.getElementById("decrement_teleop_high").addEventListener("click", function(){teleop_high_scored--; teleopHigh.innerHTML = teleop_high_scored;});
 
-document.getElementById("increment_teleop_low").addEventListener("click", function(){teleop_low_scored++; teleopLow.value = teleop_low_scored;});
-document.getElementById("decrement_teleop_low").addEventListener("click", function(){teleop_low_scored--; teleopLow.value = teleop_low_scored;});
+document.getElementById("increment_teleop_low").addEventListener("click", function(){teleop_low_scored++; teleopLow.innerHTML = teleop_low_scored;});
+document.getElementById("decrement_teleop_low").addEventListener("click", function(){teleop_low_scored--; teleopLow.innerHTML = teleop_low_scored;});
 
 //fouls
 var foul_object = document.getElementById("foul");
