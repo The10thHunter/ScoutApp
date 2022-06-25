@@ -34,25 +34,86 @@
     
         <div class="auton">
             <h2>Autonomous Period</h2>
-            
+            <div class="point_buttons">
+                <div>
+                    <h3>High Goal</h3>
+                    <button id="decrement">-</button>
+                    <button id="increment">Add Point</button>
+                    <h3 id="auton_high"></h3>
+                </div>
+                <div>
+                    <h3>Low Goal</h3>
+                    <button id="decrement">-</button>
+                    <button id="increment">Add Point</button>
+                    <h3 id="auton_low"></h3><br>
+                </div>
+            </div>
         </div> 
     
-    
-        <div class="driver">
-            <h2>Tele-Operated Period</h2>
-
+        <div class="teleop">
+            <h2>Teleoperated Period</h2>
+            <div class="point_buttons">
+                <div>
+                    <h3>High Goal</h3>
+                    <button id="decrement">-</button>
+                    <button id="increment">Add Point</button>
+                    <h3 id="teleop_high"></h3>
+                </div>
+                <div>
+                    <h3>Low Goal</h3>
+                    <button id="decrement">-</button>
+                    <button id="increment">Add Point</button>
+                    <h3 id="teleop_low"></h3><br>
+                </div>
+            </div>
         </div> 
 
         <div class="other">
             <h2>Scoring Position</h2>
+            <div class="score_position_buttons">
+                <label for="tarmac">Tarmac</label>
+                <input type="checkbox" id="tarmac" name="Tarmac">
+
+                <label for="launchpad">Launch Pad</label>
+                <input type="checkbox" id="launchpad" name="Launchpad">
+
+                <label for="other">Other</label>
+                <input type="checkbox" id="other" name="Other">
+
+            </div>
 
             <h2>Climb Level</h2>
+            <div class="climb_buttons">
 
+                <label for="nove">None</label>
+                <input type="checkbox" id="none" name="None">
+
+                <label for="low">Low</label>
+                <input type="checkbox" id="low" name="Low">
+
+                <label for="middle">Middle</label>
+                <input type="checkbox" id="middle" name="Middle">
+
+                <label for="high">High</label>
+                <input type="checkbox" id="high" name="High">
+
+                <label for="transversal">Transversal</label>
+                <input type="checkbox" id="transversal" name="Transversal">
+
+            </div>
         </div> 
 
         <div class="flags">
             <h2>Fouls and Flags</h2>
-
+            <button id="foul">Foul</button>
+            <button id="tech-foul">Tech Foul</button>
+            <button id="yellow">Yellow Card</button>
+            <button id="red">Red Card</button><br>
+            <button id="crashing">Uncontrolled Crashing</button>
+            <button id="opposing">Scored Opposing Cargo</button>
+            <button id="drivetrain">Broken Drivetrain</button>
+            <button id="defense">Played Defense</button>
+            <br><br>
         </div> 
 
         <div>
