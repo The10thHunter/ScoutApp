@@ -37,14 +37,14 @@
             <div class="point_buttons">
                 <div>
                     <h3>High Goal</h3>
-                    <button id="decrement">-</button>
-                    <button id="increment">Add Point</button>
+                    <button id="decrement_auton_high">-</button>
+                    <button id="increment_auton_high">Add Point</button>
                     <h3 id="auton_high"></h3>
                 </div>
                 <div>
                     <h3>Low Goal</h3>
-                    <button id="decrement">-</button>
-                    <button id="increment">Add Point</button>
+                    <button id="decrement_auton_low">-</button>
+                    <button id="increment_auton_low">Add Point</button>
                     <h3 id="auton_low"></h3><br>
                 </div>
             </div>
@@ -55,14 +55,14 @@
             <div class="point_buttons">
                 <div>
                     <h3>High Goal</h3>
-                    <button id="decrement">-</button>
-                    <button id="increment">Add Point</button>
+                    <button id="decrement_teleop_high">-</button>
+                    <button id="increment_teleop_high">Add Point</button>
                     <h3 id="teleop_high"></h3>
                 </div>
                 <div>
                     <h3>Low Goal</h3>
-                    <button id="decrement">-</button>
-                    <button id="increment">Add Point</button>
+                    <button id="decrement_teleop_low">-</button>
+                    <button id="increment_teleop_low">Add Point</button>
                     <h3 id="teleop_low"></h3><br>
                 </div>
             </div>
@@ -85,7 +85,7 @@
             <h2>Climb Level</h2>
             <div class="climb_buttons">
 
-                <label for="nove">None</label>
+                <label for="none">None</label>
                 <input type="checkbox" id="none" name="None">
 
                 <label for="low">Low</label>
@@ -104,9 +104,9 @@
         </div> 
 
         <div class="flags">
-            <h2>Fouls and Flags</h2>
+            <h2>Fouls and Flags <button id="reset_flags">Reset</button></h2>
             <button id="foul">Foul</button>
-            <button id="tech-foul">Tech Foul</button>
+            <button id="tech_foul">Tech Foul</button>
             <button id="yellow">Yellow Card</button>
             <button id="red">Red Card</button><br>
             <button id="crashing">Uncontrolled Crashing</button>
@@ -119,6 +119,7 @@
         <div>
             <button id="generate_qr">Generate QR Code</button>
             <button id="clear">Clear</button>
+            <p id="display"></p>
         </div>
     </main>
   </body>
