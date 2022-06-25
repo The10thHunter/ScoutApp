@@ -1,4 +1,3 @@
-var qr;
 var data = "";
 
 document.getElementById("generate_qr").addEventListener("click", gather);
@@ -137,8 +136,11 @@ function clear(){
     opposing_object.disabled = false;
     drivetrain_object.disabled = false;
     defense_object.disabled = false; 
+    document.getElementById("display").innerHTML = "";
+
 }
 
 function generateQRCode(){
+    //https://github.com/davidshimjs/qrcodejs/blob/master/README.md
     new QRCode(document.getElementById("display"), data);
 }
