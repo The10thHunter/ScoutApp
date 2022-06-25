@@ -1,3 +1,4 @@
+var qr;
 var data = "";
 
 document.getElementById("generate_qr").addEventListener("click", gather);
@@ -92,7 +93,7 @@ function gather(){
     data += boolToChar_Button(opposing_object) + ".";
     data += boolToChar_Button(drivetrain_object) + ".";
     data += boolToChar_Button(defense_object);
-    document.getElementById("display").innerHTML = data;
+    //document.getElementById("display").innerHTML = data;
     generateQRCode();
 }
 function boolToChar_Check(string){
@@ -139,5 +140,5 @@ function clear(){
 }
 
 function generateQRCode(){
-
+    new QRCode(document.getElementById("display"), data);
 }
