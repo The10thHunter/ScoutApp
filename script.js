@@ -66,36 +66,49 @@ var robotPresent = document.getElementById("robot_present");
 var exitedTarmac = document.getElementById("exited_tarmac");
 
 function gather(){
-    data += scoutName.value;
-    data += teamNumber.value;
-    data += matchNumber.value;
-    data += allianceColor.value;
-    data += robotPresent.value;
-    data += exitedTarmac.value;
-    data += auton_high_scored;
-    data += auton_low_scored;
-    data += teleop_high_scored;
-    data += teleop_low_scored;
-    data += document.getElementById("tarmac").checked;
-    data += document.getElementById("launchpad").checked;
-    data += document.getElementById("other").checked;
-    data += document.getElementById("none").checked;
-    data += document.getElementById("low").checked;
-    data += document.getElementById("middle").checked;
-    data += document.getElementById("high").checked;
-    data += document.getElementById("traversal").checked;
-    data += !foul_object.disabled;
-    data += !tech_foul_object.disabled;
-    data += !yellow_object.disabled;
-    data += !red_object.disabled;
-    data += !crashing_object.disabled;
-    data += !opposing_object.disabled;
-    data += !drivetrain_object.disabled;
-    data += !defense_object.disabled;
+    data += scoutName.value + ".";
+    data += teamNumber.value + ".";
+    data += matchNumber.value + ".";
+    data += allianceColor.value + ".";
+    data += robotPresent.value + ".";
+    data += exitedTarmac.value + ".";
+    data += auton_high_scored + ".";
+    data += auton_low_scored + ".";
+    data += teleop_high_scored + ".";
+    data += teleop_low_scored + ".";
+    data += boolToChar_Check("tarmac") + ".";
+    data += boolToChar_Check("launchpad") + ".";
+    data += boolToChar_Check("other") + ".";
+    data += boolToChar_Check("none")  + ".";
+    data += boolToChar_Check("low")  + ".";
+    data += boolToChar_Check("middle")  + ".";
+    data += boolToChar_Check("high")  + ".";
+    data += boolToChar_Check("traversal")  + ".";
+    data += boolToChar_Button(foul_object) + ".";
+    data += boolToChar_Button(tech_foul_object) + ".";
+    data += boolToChar_Button(yellow_object) + ".";
+    data += boolToChar_Button(red_object) + ".";
+    data += boolToChar_Button(crashing_object)+ ".";
+    data += boolToChar_Button(opposing_object) + ".";
+    data += boolToChar_Button(drivetrain_object) + ".";
+    data += boolToChar_Button(defense_object);
     document.getElementById("display").innerHTML = data;
     generateQRCode();
 }
-
+function boolToChar_Check(string){
+    if(document.getElementById(string).checked){
+        return 't';
+    }else{
+        return 'f';
+    }
+}
+function boolToChar_Button(object){
+    if(object.disabled){
+        return 't';
+    }else{
+        return 'f'; 
+    }
+}
 function clear(){
     scoutName.value = "";
     teamNumber.value = 0;
@@ -123,4 +136,8 @@ function clear(){
     opposing_object.disabled = false;
     drivetrain_object.disabled = false;
     defense_object.disabled = false; 
+}
+
+function generateQRCode(){
+
 }
