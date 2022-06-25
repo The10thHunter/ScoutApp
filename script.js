@@ -106,6 +106,9 @@ function gather(){
     data = document.getElementById("scout_name").value;
     data += document.getElementById("team_number").value;
     data += document.getElementById("match_number").value;
+    data += document.getElementById("alliance_color").value;
+    data += document.getElementById("robot_present").value;
+    data += document.getElementById("exited_tarmac").value;
     data += auton_high_scored;
     data += auton_low_scored;
     data += teleop_high_scored;
