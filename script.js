@@ -144,3 +144,43 @@ function generateQRCode(){
     //https://github.com/davidshimjs/qrcodejs/blob/master/README.md
     new QRCode(document.getElementById("display"), data);
 }
+
+document.getElementById("zone1.1").addEventListener("click", function(){
+    console.log("Zone1.1 was clicked");
+});
+document.getElementById("zone1.2").addEventListener("click", function(){
+    console.log("Zone1.2 was clicked");
+});
+document.getElementById("zone1.3").addEventListener("click", function(){
+    console.log("Zone1.3 was clicked");
+});
+
+document.getElementById("zone2.1").addEventListener("click", function(){
+    console.log("Zone2.1 was clicked");
+});
+document.getElementById("zone2.2").addEventListener("click", function(){
+    console.log("Zone2.2 was clicked");
+});
+document.getElementById("zone2.3").addEventListener("click", function(){
+    console.log("Zone2.3 was clicked");
+});
+
+document.getElementById("zone3.1").addEventListener("click", function(){
+    console.log("Zone3.1 was clicked");
+});
+document.getElementById("zone3.2").addEventListener("click", function(){
+    console.log("Zone3.2 was clicked");
+});
+document.getElementById("zone3.3").addEventListener("click", function(){
+    console.log("Zone3.3 was clicked");
+});
+
+document.getElementById("zone4.1").addEventListener("click", function(){
+    console.log("Zone4.1 was clicked");
+});
+document.getElementById("zone4.2").addEventListener("click", function(){
+    console.log("Zone4.2 was clicked");
+});
+document.getElementById("zone4.3").addEventListener("click", function(){
+    console.log("Zone4.3 was clicked");
+});
