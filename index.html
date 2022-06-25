@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>FRC Scouting Application</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- import the webpage's stylesheet -->
+	<link rel="stylesheet" href="/style.css">
+
+	<!-- import the webpage's javascript file -->
+	<script src="/script.js" defer>
+
+	</script>
+</head>
+
+<body>
+
+	<header>
+		<h1>FRC Scouting Application</h1>
+	</header>
+
+	<main>
+		<div class="match_info">
+            <label for="scout_name">Scout Name: </label>
+            <input type="text" id="scout_name" name="scoutName">
+            <label for="team_number">Team Number:</label>
+            <input type="text" id="team_number" name="teamNumber">
+            <label for="match_number">Match Number:</label>
+            <input type="text" id="match_number" name="matchNumber"><br>
+        </div> 
+    
+        <div class="auton">
+            <h2>Autonomous Period</h2>
+            
+        </div> 
+    
+    
+        <div class="driver">
+            <h2>Tele-Operated Period</h2>
+
+        </div> 
+
+        <div class="other">
+            <h2>Scoring Position</h2>
+
+            <h2>Climb Level</h2>
+
+        </div> 
+
+        <div class="flags">
+            <h2>Fouls and Flags</h2>
+
+        </div> 
+
+        <div>
+            <button id="generate_qr">Generate QR Code</button>
+            <button id="clear">Clear</button>
+        </div>
+    </main>
+  </body>
+</html>
