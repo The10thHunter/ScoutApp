@@ -58,6 +58,59 @@ document.getElementById("reset_flags").addEventListener("click", function(){
     defense_object.disabled = false;
 })
 
+var startZone= "";
+document.getElementById("zone1.1").addEventListener("click", function(){
+    startZone = "Zone1.1";
+    document.getElementById("zone_display").innerHTML = "Zone 1.1 Selected";
+});
+document.getElementById("zone1.2").addEventListener("click", function(){
+    startZone = "Zone1.2";
+    document.getElementById("zone_display").innerHTML = "Zone 1.2 Selected";
+});
+document.getElementById("zone1.3").addEventListener("click", function(){
+    startZone = "Zone1.3";
+    document.getElementById("zone_display").innerHTML = "Zone 1.3 Selected";
+});
+
+document.getElementById("zone2.1").addEventListener("click", function(){
+    startZone = "Zone2.1";
+    document.getElementById("zone_display").innerHTML = "Zone 2.1 Selected";
+});
+document.getElementById("zone2.2").addEventListener("click", function(){
+    startZone = "Zone2.2";
+    document.getElementById("zone_display").innerHTML = "Zone 2.2 Selected";
+});
+document.getElementById("zone2.3").addEventListener("click", function(){
+    startZone = "Zone2.3";
+    document.getElementById("zone_display").innerHTML = "Zone 2.3 Selected";
+});
+
+document.getElementById("zone3.1").addEventListener("click", function(){
+    startZone = "Zone3.1";
+    document.getElementById("zone_display").innerHTML = "Zone 3.1 Selected";
+});
+document.getElementById("zone3.2").addEventListener("click", function(){
+    startZone = "Zone3.2";
+    document.getElementById("zone_display").innerHTML = "Zone 3.2 Selected";
+});
+document.getElementById("zone3.3").addEventListener("click", function(){
+    startZone = "Zone3.2";
+    document.getElementById("zone_display").innerHTML = "Zone 3.3 Selected";
+});
+
+document.getElementById("zone4.1").addEventListener("click", function(){
+    startZone = "Zone4.1";
+    document.getElementById("zone_display").innerHTML = "Zone 4.1 Selected";
+});
+document.getElementById("zone4.2").addEventListener("click", function(){
+    startZone = "Zone4.2";
+    document.getElementById("zone_display").innerHTML = "Zone 4.2 Selected";
+});
+document.getElementById("zone4.3").addEventListener("click", function(){
+    startZone = "Zone4.3";
+    document.getElementById("zone_display").innerHTML = "Zone 4.3 Selected";
+});
+
 var scoutName = document.getElementById("scout_name");
 var teamNumber = document.getElementById("team_number");
 var matchNumber = document.getElementById("match_number");
@@ -72,6 +125,7 @@ function gather(){
     data += allianceColor.value + ".";
     data += robotPresent.value + ".";
     data += exitedTarmac.value + ".";
+    data += zoneStart + ".";
     data += auton_high_scored + ".";
     data += auton_low_scored + ".";
     data += teleop_high_scored + ".";
@@ -144,43 +198,3 @@ function generateQRCode(){
     //https://github.com/davidshimjs/qrcodejs/blob/master/README.md
     new QRCode(document.getElementById("display"), data);
 }
-
-document.getElementById("zone1.1").addEventListener("click", function(){
-    console.log("Zone1.1 was clicked");
-});
-document.getElementById("zone1.2").addEventListener("click", function(){
-    console.log("Zone1.2 was clicked");
-});
-document.getElementById("zone1.3").addEventListener("click", function(){
-    console.log("Zone1.3 was clicked");
-});
-
-document.getElementById("zone2.1").addEventListener("click", function(){
-    console.log("Zone2.1 was clicked");
-});
-document.getElementById("zone2.2").addEventListener("click", function(){
-    console.log("Zone2.2 was clicked");
-});
-document.getElementById("zone2.3").addEventListener("click", function(){
-    console.log("Zone2.3 was clicked");
-});
-
-document.getElementById("zone3.1").addEventListener("click", function(){
-    console.log("Zone3.1 was clicked");
-});
-document.getElementById("zone3.2").addEventListener("click", function(){
-    console.log("Zone3.2 was clicked");
-});
-document.getElementById("zone3.3").addEventListener("click", function(){
-    console.log("Zone3.3 was clicked");
-});
-
-document.getElementById("zone4.1").addEventListener("click", function(){
-    console.log("Zone4.1 was clicked");
-});
-document.getElementById("zone4.2").addEventListener("click", function(){
-    console.log("Zone4.2 was clicked");
-});
-document.getElementById("zone4.3").addEventListener("click", function(){
-    console.log("Zone4.3 was clicked");
-});

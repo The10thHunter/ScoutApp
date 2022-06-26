@@ -22,24 +22,6 @@
 
 	<header>
 		<h1>FRC Scouting Application</h1>
-        <img src="assets/gameFieldWZones.png" usemap="#fieldmap">
-        <map name="fieldmap">
-            <area id="zone1.1" shape="poly" coords="330, 211, 388, 329, 282, 422, 155, 376" />
-            <area id="zone1.2" shape="poly" coords="389, 328, 283, 423, 290, 574, 375, 537, 429, 410" />
-            <area id="zone1.3" shape="poly" coords="158, 378, 164, 619, 164, 619, 290, 574, 290, 574, 283, 424" />
-
-            <area id="zone2.1" shape="poly" coords="433, 302, 473, 386, 618, 434, 691, 403, 592, 296" />
-            <area id="zone2.2" shape="poly" coords="593, 296, 691, 404, 831, 343, 641, 174" />
-            <area id="zone2.3" shape="poly" coords="390, 183, 642, 176, 642, 176, 593, 297, 593, 297, 434, 301" />
-
-            <area id="zone3.1" shape="poly" coords="738, 436, 842, 392, 858, 634, 732, 575" />
-            <area id="zone3.2" shape="poly" coords="618, 667, 673, 803, 857, 631, 734, 576" />
-            <area id="zone3.3" shape="poly" coords="582, 610, 630, 480, 739, 437, 735, 578, 617, 667" />
-
-            <area id="zone4.1" shape="poly" coords="364, 843, 621, 833, 574, 721, 421, 722" />
-            <area id="zone4.2" shape="poly" coords="327, 604, 400, 576, 534, 635, 575, 722, 421, 722" />
-            <area id="zone4.3" shape="poly" coords="186, 669, 327, 607, 421, 722, 363, 843" />
-        </map>
 	</header>
 
 	<main>
@@ -69,7 +51,28 @@
                 <option value="no">No</option>
             </select>
         </div><br>
-    
+
+        <div class="map">
+          <img src="assets/gameFieldWZones.png" usemap="#fieldmap">
+          <map name="fieldmap">
+              <area id="zone1.1" shape="poly" coords="330, 211, 388, 329, 282, 422, 155, 376" />
+              <area id="zone1.2" shape="poly" coords="389, 328, 283, 423, 290, 574, 375, 537, 429, 410" />
+              <area id="zone1.3" shape="poly" coords="158, 378, 164, 619, 164, 619, 290, 574, 290, 574, 283, 424" />
+  
+              <area id="zone2.1" shape="poly" coords="433, 302, 473, 386, 618, 434, 691, 403, 592, 296" />
+              <area id="zone2.2" shape="poly" coords="593, 296, 691, 404, 831, 343, 641, 174" />
+              <area id="zone2.3" shape="poly" coords="390, 183, 642, 176, 642, 176, 593, 297, 593, 297, 434, 301" />
+  
+              <area id="zone3.1" shape="poly" coords="738, 436, 842, 392, 858, 634, 732, 575" />
+              <area id="zone3.2" shape="poly" coords="618, 667, 673, 803, 857, 631, 734, 576" />
+              <area id="zone3.3" shape="poly" coords="582, 610, 630, 480, 739, 437, 735, 578, 617, 667" />
+  
+              <area id="zone4.1" shape="poly" coords="364, 843, 621, 833, 574, 721, 421, 722" />
+              <area id="zone4.2" shape="poly" coords="327, 604, 400, 576, 534, 635, 575, 722, 421, 722" />
+              <area id="zone4.3" shape="poly" coords="186, 669, 327, 607, 421, 722, 363, 843" />
+          </map>
+          <p id="zone_display">No Zone Selected</p>
+        </div>
         <div class="auton">
             <h2>Autonomous Period</h2>
             <div class="point_buttons">
