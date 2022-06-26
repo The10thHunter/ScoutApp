@@ -60,74 +60,72 @@ document.getElementById("reset_flags").addEventListener("click", function(){
 
 var startZone = "";
 document.getElementById("zone1").addEventListener("click", function(){
-    startZone = "Zone1";
+    startZone = "1";
     document.getElementById("zone_display").innerHTML = "Zone 1 Selected";
 });
 document.getElementById("zone2").addEventListener("click", function(){
-    startZone = "Zone2";
+    startZone = "2";
     document.getElementById("zone_display").innerHTML = "Zone 2 Selected";
 });
 document.getElementById("zone3").addEventListener("click", function(){
-    startZone = "Zone3";
+    startZone = "3";
     document.getElementById("zone_display").innerHTML = "Zone 3 Selected";
 });
 document.getElementById("zone4").addEventListener("click", function(){
-    startZone = "Zone4";
+    startZone = "4";
     document.getElementById("zone_display").innerHTML = "Zone 4 Selected";
 });
 
 document.getElementById("zone5").addEventListener("click", function(){
-    startZone = "Zone5";
+    startZone = "5";
     document.getElementById("zone_display").innerHTML = "Zone 5 Selected";
 });
 document.getElementById("zone6").addEventListener("click", function(){
-    startZone = "Zone6";
+    startZone = "6";
     document.getElementById("zone_display").innerHTML = "Zone 6 Selected";
 });
 document.getElementById("zone7").addEventListener("click", function(){
-    startZone = "Zone7";
+    startZone = "7";
     document.getElementById("zone_display").innerHTML = "Zone 7 Selected";
 });
 document.getElementById("zone8").addEventListener("click", function(){
-    startZone = "Zone8";
+    startZone = "8";
     document.getElementById("zone_display").innerHTML = "Zone 8 Selected";
 });
 
 document.getElementById("zone9").addEventListener("click", function(){
-    startZone = "Zone9";
+    startZone = "9";
     document.getElementById("zone_display").innerHTML = "Zone 9 Selected";
 });
 document.getElementById("zone10").addEventListener("click", function(){
-    startZone = "Zone10";
+    startZone = "10";
     document.getElementById("zone_display").innerHTML = "Zone 10 Selected";
 });
 document.getElementById("zone11").addEventListener("click", function(){
-    startZone = "Zone11";
+    startZone = "11";
     document.getElementById("zone_display").innerHTML = "Zone 11 Selected";
 });
 document.getElementById("zone12").addEventListener("click", function(){
-    startZone = "Zone12";
+    startZone = "12";
     document.getElementById("zone_display").innerHTML = "Zone 12 Selected";
 });
 
 document.getElementById("zone13").addEventListener("click", function(){
-    startZone = "Zone13";
+    startZone = "13";
     document.getElementById("zone_display").innerHTML = "Zone 13 Selected";
 });
 document.getElementById("zone14").addEventListener("click", function(){
-    startZone = "Zone14";
+    startZone = "14";
     document.getElementById("zone_display").innerHTML = "Zone 14 Selected";
 });
 document.getElementById("zone15").addEventListener("click", function(){
-    startZone = "Zone15";
+    startZone = "15";
     document.getElementById("zone_display").innerHTML = "Zone 15 Selected";
 });
 document.getElementById("zone16").addEventListener("click", function(){
-    startZone = "Zone16";
+    startZone = "16";
     document.getElementById("zone_display").innerHTML = "Zone 16 Selected";
 });
-
-console.log(startZone);
 
 var scoutName = document.getElementById("scout_name");
 var teamNumber = document.getElementById("team_number");
