@@ -1,6 +1,6 @@
-html, body {
-  height: 100%;
-  width: 100%;
+body{
+  background-color: white;
+  color: black;
 }
 h3 { 
     display: inline;
@@ -18,5 +18,8 @@ button {
 .decrement{
   height: 30px;
   width: 10px;
-
+}
+.dark_mode{
+  background-color: black;
+  color: lightgray;
 }

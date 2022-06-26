@@ -22,6 +22,7 @@
 
 	<header>
 		<h1>FRC Scouting Application</h1>
+    <button id="dark_mode">Toggle Dark Mode</button>
 	</header>
 
 	<main>
@@ -53,27 +54,24 @@
         </div><br>
 
         <div class="map">
-          <img src="assets/Zones.png" usemap="#fieldmap">
+          <img id="fieldMap" src="assets/Zones.png" usemap="#fieldmap">
           <map name="fieldmap">
-            <area id="zone16" shape="poly" coords="1055, 156, 1219, 318, 1167, 342, 1010, 283" />
-            <area id="zone15" shape="poly" coords="1009, 285, 974, 385, 1033, 406, 1166, 342" />
-            <area id="zone14" shape="poly" coords="853, 228, 909, 354, 973, 384, 1009, 285" />
-            <area id="zone13" shape="poly" coords="826, 166, 851, 229, 1010, 285, 1054, 159" />
-
-            <area id="zone12" shape="poly" coords="1029, 503, 1004, 568, 1067, 711, 1128, 544" />
-            <area id="zone11" shape="poly" coords="1182, 388, 1051, 444, 1028, 504, 1128, 545" />
-            <area id="zone10" shape="poly" coords="1248, 595, 1241, 367, 1181, 389, 1127, 545" />
-            <area id="zone9" shape="poly" coords="1092, 757, 1068, 713, 1127, 546, 1247, 593" />
-
-            <area id="zone8" shape="poly" coords="868, 660, 1014, 713, 963, 592, 901, 567" />
-            <area id="zone7" shape="poly" coords="713, 597, 835, 540, 901, 569, 870, 660" />
-            <area id="zone6" shape="poly" coords="819, 794, 1040, 780, 1012, 712, 869, 660" />
-            <area id="zone5" shape="poly" coords="650, 626, 711, 597, 869, 661, 819, 794" />
-
-            <area id="zone4" shape="poly" coords="809, 251, 868, 377, 842, 443, 754, 406" />
-            <area id="zone3" shape="poly" coords="700, 554, 822, 499, 842, 441, 754, 406" />
-            <area id="zone2" shape="poly" coords="620, 355, 776, 184, 776, 184, 810, 251, 754, 406" />
-            <area id="zone1" shape="poly" coords="622, 356, 753, 407, 699, 554, 627, 584" />
+            <area id="zone16" shape="poly" coords="711, 600, 651, 626, 820, 789, 868, 659" />
+            <area id="zone15" shape="poly" coords="1016, 716, 1042, 777, 823, 788, 869, 658" />
+            <area id="zone14" shape="poly" coords="1128, 546, 1251, 593, 1090, 759, 1067, 713" />
+            <area id="zone13" shape="poly" coords="1186, 385, 1238, 364, 1250, 591, 1128, 546" />
+            <area id="zone12" shape="poly" coords="1052, 160, 1219, 317, 1160, 340, 1008, 284" />
+            <area id="zone11" shape="poly" coords="851, 227, 825, 168, 1052, 162, 1008, 284" />
+            <area id="zone10" shape="poly" coords="622, 355, 779, 184, 806, 251, 753, 405" />
+            <area id="zone9" shape="poly" coords="700, 555, 629, 584, 621, 356, 753, 407" />
+            <area id="zone8" shape="poly" coords="903, 565, 840, 541, 709, 599, 869, 660" />
+            <area id="zone7" shape="poly" coords="902, 564, 961, 590, 1017, 716, 867, 658" />
+            <area id="zone6" shape="poly" coords="1025, 504, 1006, 565, 1066, 714, 1128, 546" />
+            <area id="zone5" shape="poly" coords="1049, 448, 1185, 387, 1128, 547, 1026, 507" />
+            <area id="zone4" shape="poly" coords="1008, 283, 1160, 340, 1033, 405, 973, 383" />
+            <area id="zone3" shape="poly" coords="853, 228, 906, 358, 976, 386, 1010, 284" />
+            <area id="zone2" shape="poly" coords="751, 407, 808, 251, 863, 373, 844, 443" />
+            <area id="zone1" shape="poly" coords="823, 496, 698, 555, 753, 405, 842, 442" />
           </map>
           <p id="zone_display">No Zone Selected</p>
         </div>
@@ -82,14 +80,14 @@
             <div class="point_buttons">
                 <div>
                     <h3>High Goal</h3>
-                    <button id="decrement_auton_high">-</button>
-                    <button id="increment_auton_high">Add Point</button>
+                    <button class="decrement" id="decrement_auton_high">-</button>
+                    <button class="increment" id="increment_auton_high">Add Point</button>
                     <h3 id="auton_high">#</h3>
                 </div>
                 <div>
                     <h3>Low Goal</h3>
-                    <button id="decrement_auton_low">-</button>
-                    <button id="increment_auton_low">Add Point</button>
+                    <button class="decrement" id="decrement_auton_low">-</button>
+                    <button class="increment" id="increment_auton_low">Add Point</button>
                     <h3 id="auton_low">#</h3><br>
                 </div>
             </div>
@@ -100,14 +98,14 @@
             <div class="point_buttons">
                 <div>
                     <h3>High Goal</h3>
-                    <button id="decrement_teleop_high">-</button>
-                    <button id="increment_teleop_high">Add Point</button>
+                    <button class="decrement" id="decrement_teleop_high">-</button>
+                    <button class="increment" id="increment_teleop_high">Add Point</button>
                     <h3 id="teleop_high">#</h3>
                 </div>
                 <div>
                     <h3>Low Goal</h3>
-                    <button id="decrement_teleop_low">-</button>
-                    <button id="increment_teleop_low">Add Point</button>
+                    <button class="decrement" id="decrement_teleop_low">-</button>
+                    <button class="increment" id="increment_teleop_low">Add Point</button>
                     <h3 id="teleop_low">#</h3><br>
                 </div>
             </div>
