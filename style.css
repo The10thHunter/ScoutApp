@@ -1,16 +1,22 @@
-/* STYLE SECTIONING TAGS */
-  body {
-  }
-  
-  /* STYLE TEXT */
-  h1 {
-  }
-  
-  h3 { 
-      display: inline;
-  }
+html, body {
+  height: 100%;
+  width: 100%;
+}
+h3 { 
+    display: inline;
+}
 
-  /* STYLE BUTTON */
-  button { 
-    margin-top: 5px;
-  }
+/* STYLE BUTTON */
+button { 
+  margin-top: 5px;
+}
+
+.increment{
+  height: 50px;
+  width: 200px;
+}
+.decrement{
+  height: 30px;
+  width: 10px;
+
+}
