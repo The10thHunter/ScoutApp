@@ -231,6 +231,7 @@ function clear(){
     allianceColor.value = "";
     robotPresent.value = "";
     exitedTarmac.value = "";
+    document.getElementById("zone_display").innerHTML = "Balls Selected: ";
     auton_high_scored = 0;
     auton_low_scored = 0;
     teleop_high_scored = 0;
