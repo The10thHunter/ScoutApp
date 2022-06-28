@@ -127,10 +127,6 @@ document.getElementById("zone15").addEventListener("click", function(){
     startZone = "Zone15";
     document.getElementById("zone_display").innerHTML = "Zone 15 Selected";
 });
-document.getElementById("zone16").addEventListener("click", function(){
-    startZone = "Zone16";
-    document.getElementById("zone_display").innerHTML = "Zone 16 Selected";
-});
 
 var scoutName = document.getElementById("scout_name");
 var teamNumber = document.getElementById("team_number");
