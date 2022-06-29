@@ -30,6 +30,45 @@ document.getElementById("decrement_teleop_high").addEventListener("click", funct
 document.getElementById("increment_teleop_low").addEventListener("click", function(){teleop_low_scored++; teleopLow.innerHTML = teleop_low_scored;});
 document.getElementById("decrement_teleop_low").addEventListener("click", function(){teleop_low_scored--; teleopLow.innerHTML = teleop_low_scored;});
 
+//scoring position
+var tarmac = document.getElementById("tarmac");
+var launch_pad = document.getElementById("launchpad");
+var other = document.getElementById("other");
+
+tarmac.addEventListener("click", function(){tarmac.disabled = true;});
+launchpad.addEventListener("click", function(){launchpad.disabled = true;});
+other.addEventListener("click", function(){other.disabled = true;});
+
+document.getElementById("reset_score_pos").addEventListener("click", function(){
+    tarmac.disabled = false;
+    launchpad.disabled = false;
+    other.disabled = false;
+})
+
+//climb level
+var none = document.getElementById("none");
+var attempted = document.getElementById("attempted");
+var low = document.getElementById("low");
+var middle = document.getElementById("middle");
+var high = document.getElementById("high");
+var traversal = document.getElementById("traversal");
+
+none.addEventListener("click", function(){none.disabled = true;});
+attempted.addEventListener("click", function(){attempted.disabled = true;});
+low.addEventListener("click", function(){low.disabled = true;});
+middle.addEventListener("click", function(){middle.disabled = true;});
+high.addEventListener("click", function(){high.disabled = true;});
+traversal.addEventListener("click", function(){traversal.disabled = true;});
+
+document.getElementById("reset_climb").addEventListener("click", function(){
+    none.disabled = false;
+    attempted.disabled = false;
+    low.disabled = false;
+    middle.disabled = false;
+    high.disabled = false;
+    traversal.disabled = false;
+})
+
 //fouls
 var foul_object = document.getElementById("foul");
 var tech_foul_object = document.getElementById("tech_foul");
@@ -62,6 +101,7 @@ document.getElementById("reset_flags").addEventListener("click", function(){
     drivetrain_object.disabled = false;
     defense_object.disabled = false;
 })
+
 
 var startZone= "";
 var b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14 = false;
@@ -186,38 +226,42 @@ function gather(){
     data += auton_low_scored + ".";
     data += teleop_high_scored + ".";
     data += teleop_low_scored + ".";
-    data += boolToChar_Check("tarmac") + ".";
-    data += boolToChar_Check("launchpad") + ".";
-    data += boolToChar_Check("other") + ".";
-    data += boolToChar_Check("none")  + ".";
-    data += boolToChar_Check("low")  + ".";
-    data += boolToChar_Check("middle")  + ".";
-    data += boolToChar_Check("high")  + ".";
-    data += boolToChar_Check("traversal")  + ".";
-    data += boolToChar_Button(foul_object) + ".";
-    data += boolToChar_Button(tech_foul_object) + ".";
-    data += boolToChar_Button(yellow_object) + ".";
-    data += boolToChar_Button(red_object) + ".";
-    data += boolToChar_Button(crashing_object)+ ".";
-    data += boolToChar_Button(opposing_object) + ".";
-    data += boolToChar_Button(drivetrain_object) + ".";
-    data += boolToChar_Button(defense_object);
+    data += boolToChar(tarmac) + ".";
+    data += boolToChar(launchpad) + ".";
+    data += boolToChar(other) + ".";
+    data += climbLevel() + ".";
+    data += boolToChar(foul_object) + ".";
+    data += boolToChar(tech_foul_object) + ".";
+    data += boolToChar(yellow_object) + ".";
+    data += boolToChar(red_object) + ".";
+    data += boolToChar(crashing_object)+ ".";
+    data += boolToChar(opposing_object) + ".";
+    data += boolToChar(drivetrain_object) + ".";
+    data += boolToChar(defense_object);
     document.getElementById("display").innerHTML = data;
     generateQRCode();
+}
+
+function climbLevel(){
+    if(none.disabled){
+        return "none";
+    }else if(attempted.disabled){
+        return "attempted";
+    }else if(low.disabled){
+        return "low";
+    }else if(middle.disabled){
+        return "middle";
+    }else if(high.disabled){
+        return "high";
+    }else if(traversal.disabled){
+        return "traversal";
+    }
 }
 
 function removeZone(str){
     document.getElementById("zone_display").innerHTML = document.getElementById("zone_display").innerHTML.replace(str, ''); 
 }
-
-function boolToChar_Check(string){
-    if(document.getElementById(string).checked){
-        return 't';
-    }else{
-        return 'f';
-    }
-}
-function boolToChar_Button(object){
+function boolToChar(object){
     if(object.disabled){
         return 't';
     }else{
