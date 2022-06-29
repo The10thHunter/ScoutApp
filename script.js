@@ -181,7 +181,7 @@ function gather(){
     data += allianceColor.value + ".";
     data += robotPresent.value + ".";
     data += exitedTarmac.value + ".";
-    data += startZone + ".";
+    data += (document.getElementById("zone_display").innerHTML.replace('Balls Selected:', '')).replaceAll(" Ball ", '') + "."; 
     data += auton_high_scored + ".";
     data += auton_low_scored + ".";
     data += teleop_high_scored + ".";
@@ -202,7 +202,7 @@ function gather(){
     data += boolToChar_Button(opposing_object) + ".";
     data += boolToChar_Button(drivetrain_object) + ".";
     data += boolToChar_Button(defense_object);
-    //document.getElementById("display").innerHTML = data;
+    document.getElementById("display").innerHTML = data;
     generateQRCode();
 }
 
