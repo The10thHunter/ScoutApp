@@ -255,6 +255,8 @@ function climbLevel(){
         return "high";
     }else if(traversal.disabled){
         return "traversal";
+    }else{
+        return "";
     }
 }
 
