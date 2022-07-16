@@ -40,11 +40,14 @@ launchpad.addEventListener("click", function(){launchpad.disabled = true;});
 other.addEventListener("click", function(){other.disabled = true;});
 
 document.getElementById("reset_score_pos").addEventListener("click", function(){
+    resetScorePos();
+})
+
+function resetScorePos(){
     tarmac.disabled = false;
     launchpad.disabled = false;
     other.disabled = false;
-})
-
+}
 //climb level
 var none = document.getElementById("none");
 var attempted = document.getElementById("attempted");
@@ -61,13 +64,17 @@ high.addEventListener("click", function(){high.disabled = true;});
 traversal.addEventListener("click", function(){traversal.disabled = true;});
 
 document.getElementById("reset_climb").addEventListener("click", function(){
+    resetClimb()
+})
+
+function resetClimb(){
     none.disabled = false;
     attempted.disabled = false;
     low.disabled = false;
     middle.disabled = false;
     high.disabled = false;
     traversal.disabled = false;
-})
+}
 
 //fouls
 var foul_object = document.getElementById("foul");
@@ -92,6 +99,10 @@ drivetrain_object.addEventListener("click", function(){drivetrain_object.disable
 defense_object.addEventListener("click", function(){defense_object.disabled = true;});
 
 document.getElementById("reset_flags").addEventListener("click", function(){
+    resetFlags();
+})
+
+function resetFlags(){
     foul_object.disabled = false;
     tech_foul_object.disabled = false;
     yellow_object.disabled = false;
@@ -100,7 +111,7 @@ document.getElementById("reset_flags").addEventListener("click", function(){
     opposing_object.disabled = false;
     drivetrain_object.disabled = false;
     defense_object.disabled = false;
-})
+}
 
 
 var startZone= "";
@@ -221,7 +232,7 @@ function gather(){
     data += allianceColor.value + ".";
     data += robotPresent.value + ".";
     data += exitedTarmac.value + ".";
-    data += (document.getElementById("zone_display").innerHTML.replace('Balls Selected:', '')).replaceAll(" Ball ", '') + "."; 
+    data += (document.getElementById("zone_display").innerHTML.replace('Balls Selected:', '')).replaceAll(" Ball ", '/') + "."; 
     data += auton_high_scored + ".";
     data += auton_low_scored + ".";
     data += teleop_high_scored + ".";
@@ -237,9 +248,18 @@ function gather(){
     data += boolToChar(crashing_object)+ ".";
     data += boolToChar(opposing_object) + ".";
     data += boolToChar(drivetrain_object) + ".";
-    data += boolToChar(defense_object);
+    data += boolToChar(defense_object) + ".";
     document.getElementById("display").innerHTML = data;
-    generateQRCode();
+    var count = 0;
+    for(let i = 0; i < data.length; i++){
+        if(data.charAt(i) == '.'){
+            count++;
+        }
+        if(count == 23){  
+            generateQRCode(data.substring(0, i));
+            break;
+        }
+    }
 }
 
 function climbLevel(){
@@ -278,30 +298,23 @@ function clear(){
     robotPresent.value = "";
     exitedTarmac.value = "";
     document.getElementById("zone_display").innerHTML = "Balls Selected: ";
+    autonHigh.innerHTML = "#";
     auton_high_scored = 0;
+    autonLow.innerHTML = "#";
     auton_low_scored = 0;
+    teleopHigh.innerHTML = "#";
     teleop_high_scored = 0;
+    teleopLow.innerHTML = "#";
     teleop_low_scored = 0;
-    document.getElementById("tarmac").checked;
-    document.getElementById("launchpad").checked;
-    document.getElementById("other").checked;
-    document.getElementById("none").checked;
-    document.getElementById("low").checked;
-    document.getElementById("middle").checked;
-    document.getElementById("high").checked;
-    document.getElementById("traversal").checked;
-    foul_object.disabled = false;
-    tech_foul_object.disabled = false;
-    yellow_object.disabled = false;
-    red_object.disabled = false;
-    crashing_object.disabled = false;
-    opposing_object.disabled = false;
-    drivetrain_object.disabled = false;
-    defense_object.disabled = false; 
+    resetScorePos();
+    resetClimb();
+    resetFlags();
     document.getElementById("display").innerHTML = "";
+    data = "";
 }
 
-function generateQRCode(){
+function generateQRCode(str){
+    print(str);
     //https://github.com/davidshimjs/qrcodejs/blob/master/README.md
-    new QRCode(document.getElementById("display"), data);
+    new QRCode(document.getElementById("display"), str);
 }
