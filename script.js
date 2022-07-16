@@ -249,7 +249,7 @@ function gather(){
     data += boolToChar(opposing_object) + ".";
     data += boolToChar(drivetrain_object) + ".";
     data += boolToChar(defense_object) + ".";
-    document.getElementById("display").innerHTML = data;
+    //document.getElementById("display").innerHTML = data;
     var count = 0;
     for(let i = 0; i < data.length; i++){
         if(data.charAt(i) == '.'){
