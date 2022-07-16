@@ -1,12 +1,10 @@
 #Reads CSV and translates into classes & variables
-
+import 'gen-df.py' as gen
 import numpy as np
 import pandas as pd
-#import init.py
 
-full_scout_data = pd.read_csv('data.csv', skipinitialspace = True) 
+full_scout_data = 
 team_query = input('Team Query:')
-team_query = int(team_query)
 team_cluster = full_scout_data.loc[full_scout_data['Team #'] == team_query]
 
 class Team:

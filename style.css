@@ -3,11 +3,6 @@ body{
   color: black;
 }
 
-#fieldMap{
-  width: 648px;
-  height: 316px;
-}
-
 h3 { 
     display: inline;
 }

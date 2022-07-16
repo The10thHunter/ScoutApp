@@ -1,4 +1,4 @@
-#!/home/prashant/scout-app/env/bin/python3
+#!/home/prashant/env/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
