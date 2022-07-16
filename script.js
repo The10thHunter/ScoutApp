@@ -12,11 +12,15 @@ var autonHigh = document.getElementById("auton_high");
 var autonLow = document.getElementById("auton_low");
 var teleopHigh = document.getElementById("teleop_high");
 var teleopLow = document.getElementById("teleop_low");
+var opposingHigh = document.getElementById("opposing_high");
+var opposingLow = document.getElementById("opposing_low");
 
 var auton_high_scored = 0;
 var auton_low_scored = 0;
 var teleop_high_scored = 0;
 var teleop_low_scored = 0
+var opposing_high_scored = 0;
+var opposing_low_scored = 0;
 
 document.getElementById("increment_auton_high").addEventListener("click", function(){auton_high_scored++; autonHigh.innerHTML = auton_high_scored; });
 document.getElementById("decrement_auton_high").addEventListener("click", function(){auton_high_scored--; autonHigh.innerHTML = auton_high_scored;});
@@ -29,6 +33,12 @@ document.getElementById("decrement_teleop_high").addEventListener("click", funct
 
 document.getElementById("increment_teleop_low").addEventListener("click", function(){teleop_low_scored++; teleopLow.innerHTML = teleop_low_scored;});
 document.getElementById("decrement_teleop_low").addEventListener("click", function(){teleop_low_scored--; teleopLow.innerHTML = teleop_low_scored;});
+
+document.getElementById("increment_opposing_high").addEventListener("click", function(){opposing_high_scored++; opposingHigh.innerHTML = opposing_high_scored;});
+document.getElementById("decrement_opposing_high").addEventListener("click", function(){opposing_high_scored--; opposingHigh.innerHTML = opposing_high_scored;});
+
+document.getElementById("increment_opposing_low").addEventListener("click", function(){opposing_low_scored++; opposingLow.innerHTML = opposing_low_scored;});
+document.getElementById("decrement_opposing_low").addEventListener("click", function(){opposing_low_scored--; opposingLow.innerHTML = opposing_low_scored;});
 
 //scoring position
 var tarmac = document.getElementById("tarmac");
@@ -94,7 +104,6 @@ var drivetrain_object = document.getElementById("drivetrain");
 var defense_object = document.getElementById("defense");
 
 crashing_object.addEventListener("click", function(){crashing_object.disabled = true;});
-opposing_object.addEventListener("click", function(){opposing_object.disabled = true;});
 drivetrain_object.addEventListener("click", function(){drivetrain_object.disabled = true;});
 defense_object.addEventListener("click", function(){defense_object.disabled = true;});
 
@@ -108,7 +117,6 @@ function resetFlags(){
     yellow_object.disabled = false;
     red_object.disabled = false;
     crashing_object.disabled = false;
-    opposing_object.disabled = false;
     drivetrain_object.disabled = false;
     defense_object.disabled = false;
 }
@@ -226,36 +234,37 @@ var robotPresent = document.getElementById("robot_present");
 var exitedTarmac = document.getElementById("exited_tarmac");
 
 function gather(){
-    data += scoutName.value + ".";
-    data += teamNumber.value + ".";
-    data += matchNumber.value + ".";
-    data += allianceColor.value + ".";
-    data += robotPresent.value + ".";
-    data += exitedTarmac.value + ".";
-    data += (document.getElementById("zone_display").innerHTML.replace('Balls Selected:', '')).replaceAll(" Ball ", '/') + "."; 
-    data += auton_high_scored + ".";
-    data += auton_low_scored + ".";
-    data += teleop_high_scored + ".";
-    data += teleop_low_scored + ".";
-    data += boolToChar(tarmac) + ".";
-    data += boolToChar(launchpad) + ".";
-    data += boolToChar(other) + ".";
-    data += climbLevel() + ".";
-    data += boolToChar(foul_object) + ".";
-    data += boolToChar(tech_foul_object) + ".";
-    data += boolToChar(yellow_object) + ".";
-    data += boolToChar(red_object) + ".";
-    data += boolToChar(crashing_object)+ ".";
-    data += boolToChar(opposing_object) + ".";
-    data += boolToChar(drivetrain_object) + ".";
-    data += boolToChar(defense_object) + ".";
-    //document.getElementById("display").innerHTML = data;
+    data += scoutName.value + "."; //string
+    data += teamNumber.value + "."; //number
+    data += matchNumber.value + "."; //number
+    data += allianceColor.value + "."; //string: "red" or "blue"
+    data += robotPresent.value + "."; //string: "Yes" or "No"
+    data += exitedTarmac.value + "."; //string: "Yes" or "No"
+    data += (document.getElementById("zone_display").innerHTML.replace('Balls Selected:', '')).replaceAll(" Ball ", '/') + ".";//string: "/#"
+    data += auton_high_scored + "."; //integer
+    data += auton_low_scored + "."; //integer
+    data += teleop_high_scored + "."; //integer
+    data += teleop_low_scored + "."; //integer
+    data += boolToChar(tarmac) + "."; //char: "t" or "f"
+    data += boolToChar(launchpad) + "."; //char: "t" or "f"
+    data += boolToChar(other) + "."; //char: "t" or "f"
+    data += climbLevel() + "."; //string: "none" - did not attempt, "attempted", "low", "middle", "high", "traversal", "" - no input
+    data += boolToChar(foul_object) + "."; //char: "t" or "f"
+    data += boolToChar(tech_foul_object) + "."; //char: "t" or "f"
+    data += boolToChar(yellow_object) + "."; //char: "t" or "f"
+    data += boolToChar(red_object) + "."; //char: "t" or "f"
+    data += boolToChar(crashing_object)+ "."; //char: "t" or "f"
+    data += opposing_high_scored + "."; //integer
+    data += opposing_low_scored + ".";  //integer
+    data += boolToChar(drivetrain_object) + "."; //char: "t" or "f"
+    data += boolToChar(defense_object) + "."; //char: "t" or "f"
+    //document.getElementById("display").innerHTML = data; 
     var count = 0;
     for(let i = 0; i < data.length; i++){
         if(data.charAt(i) == '.'){
             count++;
         }
-        if(count == 23){  
+        if(count == 25){  
             generateQRCode(data.substring(0, i));
             break;
         }
