@@ -1,17 +1,12 @@
 #Reads DataFrame and translates into classes & variables
 from gen_df import raw_data
+from init import team_query
 import numpy as np
 import pandas as pd
 
 team_cluster = raw_data.loc[raw_data['Team #'] == team_query]
 
-class Team:
-    @classmethod
-    def usr_input(cls):
-        return cls(
-                input('Team Query: ')
-                in
-    
+class Team:    
     class Match:
         def __init__(self, scout_id, team_num, match_num, alliance, **team_q):
             scout_id = team_cluster['Scout ID'].to_list()
@@ -43,3 +38,4 @@ class Team:
             self.broken_drive = team_cluster['Broken Drive?']
             self.played_def = team_cluster['Played Def?']
             self.unctrl_crash = team_cluster['Uncontrolled Crashing?']
+    pass
