@@ -264,7 +264,7 @@ function gather(){
         if(data.charAt(i) == '.'){
             count++;
         }
-        if(count == 25){  
+        if(count == 24){  
             generateQRCode(data.substring(0, i));
             break;
         }
