@@ -128,102 +128,102 @@ document.getElementById("zone1").addEventListener("click", function(){
     startZone = "Zone1";
     b1 = !b1;
     if(b1){
-        document.getElementById("zone_display").innerHTML += " Ball 1";
-    }else{  removeZone(" Ball 1");    }
+        document.getElementById("zone_display").innerHTML += " Ball 1,";
+    }else{  removeZone(" Ball 1,");    }
 });
 document.getElementById("zone2").addEventListener("click", function(){
     startZone = "Zone2";    
     b2 = !b2;
     if(b2){
-        document.getElementById("zone_display").innerHTML += " Ball 2";
-    }else{  removeZone(" Ball 2");    }
+        document.getElementById("zone_display").innerHTML += " Ball 2,";
+    }else{  removeZone(" Ball 2,");    }
 });
 document.getElementById("zone3").addEventListener("click", function(){
     startZone = "Zone3";    
     b3 = !b3;
     if(b3){
-        document.getElementById("zone_display").innerHTML += " Ball 3";
-    }else{  removeZone(" Ball 3");    }
+        document.getElementById("zone_display").innerHTML += " Ball 3,";
+    }else{  removeZone(" Ball 3,");    }
 });
 document.getElementById("zone4").addEventListener("click", function(){
     startZone = "Zone4";   
     b4 = !b4;
     if(b4){
-        document.getElementById("zone_display").innerHTML += " Ball 4";
-    }else{  removeZone(" Ball 4");    }
+        document.getElementById("zone_display").innerHTML += " Ball 4,";
+    }else{  removeZone(" Ball 4,");    }
 });
 
 document.getElementById("zone5").addEventListener("click", function(){
     startZone = "Zone5";
     b5 = !b5;
     if(b5){
-        document.getElementById("zone_display").innerHTML += " Ball 5";
-    }else{  removeZone(" Ball 5");    }
+        document.getElementById("zone_display").innerHTML += " Ball 5,";
+    }else{  removeZone(" Ball 5,");    }
 });
 document.getElementById("zone6").addEventListener("click", function(){
     startZone = "Zone6";
     b6 = !b6;
     if(b6){
-        document.getElementById("zone_display").innerHTML += " Ball 6";
-    }else{  removeZone(" Ball 6");    }
+        document.getElementById("zone_display").innerHTML += " Ball 6,";
+    }else{  removeZone(" Ball 6,");    }
 });
 document.getElementById("zone7").addEventListener("click", function(){
     startZone = "Zone7";
     b7 = !b7;
     if(b7){
-        document.getElementById("zone_display").innerHTML += " Ball 7";
-    }else{  removeZone(" Ball 7");    }
+        document.getElementById("zone_display").innerHTML += " Ball 7,";
+    }else{  removeZone(" Ball 7,");    }
 });
 document.getElementById("zone8").addEventListener("click", function(){
     startZone = "Zone8";
     b8 = !b8;
     if(b8){
-        document.getElementById("zone_display").innerHTML += " Ball 8";
-    }else{  removeZone(" Ball 8");    }
+        document.getElementById("zone_display").innerHTML += " Ball 8,";
+    }else{  removeZone(" Ball 8,");    }
 });
 
 document.getElementById("zone9").addEventListener("click", function(){
     startZone = "Zone9";
     b9 = !b9;
     if(b9){
-        document.getElementById("zone_display").innerHTML += " Ball 9";
-    }else{  removeZone(" Ball 9");    }
+        document.getElementById("zone_display").innerHTML += " Ball 9,";
+    }else{  removeZone(" Ball 9,");    }
 });
 document.getElementById("zone10").addEventListener("click", function(){
     startZone = "Zone10";
     b10 = !b10;
     if(b10){
-        document.getElementById("zone_display").innerHTML += " Ball 10";
-    }else{  removeZone(" Ball 10");    }
+        document.getElementById("zone_display").innerHTML += " Ball 10,";
+    }else{  removeZone(" Ball 10,");    }
 });
 document.getElementById("zone11").addEventListener("click", function(){
     startZone = "Zone11";
     b11 = !b11;
     if(b11){
-        document.getElementById("zone_display").innerHTML += " Ball 11";
-    }else{  removeZone(" Ball 11");    }
+        document.getElementById("zone_display").innerHTML += " Ball 11,";
+    }else{  removeZone(" Ball 11,");    }
 });
 document.getElementById("zone12").addEventListener("click", function(){
     startZone = "Zone12";
     b12 = !b12;
     if(b12){
-        document.getElementById("zone_display").innerHTML += " Ball 12";
-    }else{  removeZone(" Ball 12");    }
+        document.getElementById("zone_display").innerHTML += " Ball 12,";
+    }else{  removeZone(" Ball 12,");    }
 });
 
 document.getElementById("zone13").addEventListener("click", function(){
     startZone = "Zone13";
     b13 = !b13;
     if(b13){
-        document.getElementById("zone_display").innerHTML += " Ball 13";
-    }else{  removeZone(" Ball 13");    }
+        document.getElementById("zone_display").innerHTML += " Ball 13,";
+    }else{  removeZone(" Ball 13,");    }
 });
 document.getElementById("zone14").addEventListener("click", function(){
     startZone = "Zone14";
     b14 = !b14;
     if(b14){
-        document.getElementById("zone_display").innerHTML += " Ball 14";
-    }else{  removeZone(" Ball 14");    }
+        document.getElementById("zone_display").innerHTML += " Ball 14,";
+    }else{  removeZone(" Ball 14,");    }
 });
 
 var scoutName = document.getElementById("scout_name");
@@ -240,7 +240,7 @@ function gather(){
     data += allianceColor.value + "."; //string: "red" or "blue"
     data += robotPresent.value + "."; //string: "Yes" or "No"
     data += exitedTarmac.value + "."; //string: "Yes" or "No"
-    data += (document.getElementById("zone_display").innerHTML.replace('Balls Selected:', '')).replaceAll(" Ball ", '/') + ".";//string: "/#"
+    data += (document.getElementById("zone_display").innerHTML.replace('Balls Selected:', '')).replaceAll(" Ball ", '/').replaceAll(",", "") + ".";//string: "/#"
     data += auton_high_scored + "."; //integer
     data += auton_low_scored + "."; //integer
     data += teleop_high_scored + "."; //integer
