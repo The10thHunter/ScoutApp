@@ -265,7 +265,7 @@ function gather(){
             count++;
         }
         if(count == 24){  
-            generateQRCode(data.substring(0, i));
+            generateQRCode(data.substring(0, i) + ",");
             break;
         }
     }
