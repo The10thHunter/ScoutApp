@@ -315,6 +315,10 @@ function clear(){
     teleop_high_scored = 0;
     teleopLow.innerHTML = "#";
     teleop_low_scored = 0;
+    opposing_high_scored = 0;
+    opposingHigh.innerHTML = "#";
+    opposing_low_scored = 0;
+    opposingLow.innerHTML = "#";
     resetScorePos();
     resetClimb();
     resetFlags();
