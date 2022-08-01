@@ -253,9 +253,9 @@ function gather(){
     data += boolToChar(tech_foul_object) + "."; //char: "t" or "f"
     data += boolToChar(yellow_object) + "."; //char: "t" or "f"
     data += boolToChar(red_object) + "."; //char: "t" or "f"
+    data += opposing_high_scored + "."; //integer 
+    data += opposing_low_scored + "."; //integer 
     data += boolToChar(crashing_object)+ "."; //char: "t" or "f"
-    data += opposing_high_scored + "."; //integer
-    data += opposing_low_scored + ".";  //integer
     data += boolToChar(drivetrain_object) + "."; //char: "t" or "f"
     data += boolToChar(defense_object) + "."; //char: "t" or "f"
     //document.getElementById("display").innerHTML = data; 
