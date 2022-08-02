@@ -1,41 +1,52 @@
 #Reads DataFrame and translates into classes & variables
-from gen_df import raw_data
-from init import team_query
+import parser
 import numpy as np
 import pandas as pd
 
-team_cluster = raw_data.loc[raw_data['Team #'] == team_query]
+data = parser.data
+usr_input = input('Team Number?: ')
+if usr_input == 'all':
+    team_cluster = data
+else:
+    team_cluster = data.loc[data['Team #'] == usr_input]
 
-class Team:    
-    class Match:
-        def __init__(self, scout_id, team_num, match_num, alliance, **team_q):
-            scout_id = team_cluster['Scout ID'].to_list()
-            team_num = team_cluster['Team #'].to_list()
-            self.match_num = team_cluster['Match #'].to_list()
-            self.alliance = team_cluster['Alliance Color'].to_list()
-    class Positional:
-        def __init__(self, on_field, left_tarmac_auto, scored_tarmac, scored_other, scored_lp, opposing_cargo, climb_status):
-            self.on_field = team_cluster['On Field?'].to_list()
-            self.left_tarmac_auto = team_cluster['Left Tarmac in Auto?'].to_list()
-            self.scored_tarmac = team_cluster['Scored Tarmac?'].to_list()
-            self.scored_other = team_cluster['Scored Other?'].to_list()
-            self.scored_lp = team_cluster['Scored LP?'].to_list()
-            self.opposing_cargo = team_cluster['Cargo Collected'].to_list()
+scout_id = team_cluster['Scout ID'].to_list()
+team_num = team_cluster['Team #'].to_list()
+match_num = team_cluster['Match #'].to_list()
+alliance = team_cluster['Alliance'].to_list()
+on_field = team_cluster['On Field'].to_list()
+left_tar = team_cluster['Left Tarmac'].to_list()
+scored_tarmac = team_cluster['Scored Tarmac'].to_list()
+scored_other = team_cluster['Scored Other'].to_list()
+scored_lp = team_cluster['Scored LP'].to_list()
 
-    class Numerical:
-        def __init__(self, auto_upper, auto_lower, teleop_upper, teleop_lower):
-            self.auto_upper = team_cluster['Auto Cargo Upper'].to_numpy()
-            self.auto_lower = team_cluster['Auto Cargo Lower'].to_numpy()
-            self.teleop_upper = team_cluster['Teleop Upper'].to_numpy()
-            self.teleop_lower = team_cluster['Teleop Lower'].to_numpy()
-            #Don't forget opposing cargo
-    class Other:
-        def __init__(self, foul_nor, tech_foul, y_card, r_card, broken_drive, played_def, unctrl_crash):
-            self.foul_nor = team_cluster['Normal Foul?'].to_list()
-            self.tech_foul = team_cluster['Tech Foul?'].to_list()
-            self.y_card = team_cluster['Yellow?']
-            self.r_card = team_cluster['Red?']
-            self.broken_drive = team_cluster['Broken Drive?']
-            self.played_def = team_cluster['Played Def?']
-            self.unctrl_crash = team_cluster['Uncontrolled Crashing?']
-    pass
+climb = []
+str_climb = team_cluster['Climb State'].to_list()
+for state in str_climb: 
+    if state == 'traversal':
+        state = 15
+    elif state == 'high':
+        state = 10
+    elif state == 'middle':
+        state = 6 
+    elif state == 'low':
+        state = 4
+    else:
+        state = 0
+    
+    climb.append(state)
+ 
+auto_cargo = team_cluster['Auto Cargo Collected'].to_list()
+auto_upper = team_cluster['Auto Upper'].to_numpy()
+auto_lower = team_cluster['Auto Lower'].to_numpy()
+teleop_upper = team_cluster['Teleop Upper'].to_numpy()
+teleop_lower = team_cluster['Teleop Lower'].to_numpy()
+opposing_high = team_cluster['Opposing High'].to_numpy()
+opposing_low = team_cluster['Opposing Low'].to_numpy()
+foul_nor = team_cluster['Normal Foul'].to_list()
+tech_foul = team_cluster['Tech Foul'].to_list()
+y_card = team_cluster['Yellow Card'].to_list()
+r_card = team_cluster['Red Card'].to_list()
+broken_drive = team_cluster['Broken Drive'].to_list()
+played_def = team_cluster['Played Defense'].to_list()
+unctrl_crash = team_cluster['Uncontrolled Crashing'].to_list()
