@@ -327,7 +327,7 @@ function clear(){
 }
 
 function generateQRCode(str){
-    print(str);
+    //print(str);
     //https://github.com/davidshimjs/qrcodejs/blob/master/README.md
     new QRCode(document.getElementById("display"), str);
 }
