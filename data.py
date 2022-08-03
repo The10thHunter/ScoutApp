@@ -4,11 +4,14 @@ import numpy as np
 import pandas as pd
 
 data = parser.data
-usr_input = input('Team Number?: ')
-if usr_input == 'all':
+print(data.columns)
+usr_input = input('Inputs (,): ')
+usr_input = usr_input.split(',')
+
+if usr_input[1] == 'all':
     team_cluster = data
 else:
-    team_cluster = data.loc[data['Team #'] == usr_input]
+    team_cluster = data.loc[data[usr_input[0]] == usr_input[1]]
 
 scout_id = team_cluster['Scout ID'].to_list()
 team_num = team_cluster['Team #'].to_list()

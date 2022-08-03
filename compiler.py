@@ -44,15 +44,17 @@ else:
 #Can shoot Up/Low? 
 
 #Print
-print(data.team_cluster)
-print('Team: ', data.usr_input)
-print('Taxi %: ', data.team_cluster['Left Tarmac'].value_counts(normalize = True).mul(100).astype(str) + '%')
-print('Made to field %: ', data.team_cluster['On Field'].value_counts(normalize = True).mul(100).astype(str) + '%')
-print('Best Climb: ', best_climb)
-print('Average Match Score: ', round(avg_total_score, 2))
-print('Highest Possible Score: ', high_calc_score)
-#print('Lowest Possible Score: ', min_calc_score)
-#print('Best Match: ', matchFind(high_score))
-#print('Lowest Match: ', matchFind(lowest_score))
-print('Zones Entered: ', [*set(data.auto_cargo)])
-
+compiled_dict = {
+    'Team #': data.usr_input[1],
+    'Taxi %': data.team_cluster['Left Tarmac'].value_counts(normalize = True).mul(100).astype(str) + '%',
+    'Made to field %' : data.team_cluster['On Field'].value_counts(normalize = True).mul(100).astype(str) + '%',
+    'Best Climb': best_climb,
+    'Average Match Score': round(avg_total_score, 2),
+    'Highest Possible Score': high_calc_score,
+    'Lowest Possible Score': min_calc_score,
+    #'Best Match': matchFind(high_score),
+    #'Lowest Match': matchFind(lowest_score),
+    #'Zones Entered': [*set(data.auto_cargo)],
+    }
+compiled_df = pd.DataFrame.from_dict(compiled_dict)
+print(compiled_df)
