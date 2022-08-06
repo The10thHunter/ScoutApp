@@ -38,7 +38,7 @@ for state in str_climb:
         state = 0
     
     climb.append(state)
- 
+
 auto_cargo = team_cluster['Auto Cargo Collected'].to_list()
 auto_upper = team_cluster['Auto Upper'].to_numpy()
 auto_lower = team_cluster['Auto Lower'].to_numpy()

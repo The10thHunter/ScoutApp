@@ -25,11 +25,9 @@ for a, b, c, d, f in zip(data.auto_upper , data.auto_lower, data.teleop_upper, d
     score = 4*a + 2*b + 2*c + d + f
     per_match_total.append(score)
 
-high_score = per_match_total.index(max(per_match_total))
-lowest_score = per_match_total.index(min(per_match_total))
-
 #Replace with max & key if climb aligns with char len or some arbitrary means better than elif's
 best_climb = max(data.climb)
+
 if best_climb == 15:
     best_climb = 'Traversal'
 elif best_climb == 10:
@@ -41,9 +39,8 @@ elif best_climb == 4:
 else: 
     best_climb = 'DNC'
 
-#Can shoot Up/Low? 
-
 #Print
+
 compiled_dict = {
     'Team #': data.usr_input[1],
     'Taxi %': data.team_cluster['Left Tarmac'].value_counts(normalize = True).mul(100).astype(str) + '%',
@@ -52,9 +49,9 @@ compiled_dict = {
     'Average Match Score': round(avg_total_score, 2),
     'Highest Possible Score': high_calc_score,
     'Lowest Possible Score': min_calc_score,
-    #'Best Match': matchFind(high_score),
+    #'Best Match': high_score,
     #'Lowest Match': matchFind(lowest_score),
-    #'Zones Entered': [*set(data.auto_cargo)],
+    #'Balls Collected': [*set(data.auto_cargo)],
     }
 compiled_df = pd.DataFrame.from_dict(compiled_dict)
 print(compiled_df)

@@ -1,14 +1,13 @@
-import pandas as pd 
+import pandas as pd
 
-pre_df = open('strings.txt')
+strings_txt = open('strings.txt').read()
+strings = strings_txt.split(',')
+del strings[-1]
 data = pd.DataFrame()
-list_main = []
-for string in pre_df:
-    string = string.split(",")
-    list_main.append(string)
-for row in list_main:
-    row = str(row)
-    row = row.split('.')
+
+for string in strings:
+    row = string.split('.')
+    print(len(row))
     #Match Data
     row_dict = {
         'Scout ID' : row[0], #str
@@ -19,7 +18,6 @@ for row in list_main:
         'On Field' : bool(row[4]), #bool
         'Left Tarmac' : bool(row[5]), #bool
         'Auto Cargo Collected': row[6].split('/'), #List 
-        #str, needs to be split to list ^, perhaps auto_cargo = row[6].split('/') [new line] 'Auto Cargo' : auto_cargo
     #Numerical Data
         'Auto Upper' : int(row[7]), #int
         'Auto Lower' : int(row[8]), #int
@@ -29,7 +27,7 @@ for row in list_main:
         'Scored Tarmac' : bool(row[11]), #bool
         'Scored LP' : bool(row[12]), #bool
         'Scored Other' : bool(row[13]), #bool
-        'Climb State' : bool(row[14]), #str
+        'Climb State' : row[14], #str
     #Other stuff
         'Normal Foul' : bool(row[15]), #bool
         'Tech Foul' : bool(row[16]), #bool
@@ -42,5 +40,5 @@ for row in list_main:
         'Played Defense' : bool(row[23])} #bool
     new_row = pd.DataFrame.from_dict(row_dict, orient = 'Columns')
     data = pd.concat([data, new_row])
-    data = data.drop_duplicates()
-    data = data.sort_values(by='Match #')
+data = data.drop_duplicates()
+data = data.sort_values(by='Match #')
