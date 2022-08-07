@@ -39,6 +39,11 @@ elif best_climb == 4:
 else: 
     best_climb = 'DNC'
 
+high_score = max(per_match_total)
+high_score_index = per_match_total.index(high_score)
+
+low_score = min(per_match_total)
+low_score_index = per_match_total.index(low_score)
 #Print
 
 compiled_dict = {
@@ -49,9 +54,9 @@ compiled_dict = {
     'Average Match Score': round(avg_total_score, 2),
     'Highest Possible Score': high_calc_score,
     'Lowest Possible Score': min_calc_score,
-    #'Best Match': high_score,
-    #'Lowest Match': matchFind(lowest_score),
-    #'Balls Collected': [*set(data.auto_cargo)],
+    'Best Match': data.match_num[high_score_index],
+    'Lowest Match': data.match_num[low_score_index],
+    'Balls Collected': set(data.auto_cargo),
     }
 compiled_df = pd.DataFrame.from_dict(compiled_dict)
 print(compiled_df)

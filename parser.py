@@ -7,9 +7,14 @@ data = pd.DataFrame()
 
 for string in strings:
     row = string.split('.')
-    print(len(row))
-    #Match Data
+
+    auto_cargo = []
+    for ball in row[6]:
+        ball = ball.split('/')
+        auto_cargo.append(ball)
+
     row_dict = {
+    #Match Data
         'Scout ID' : row[0], #str
         'Team #' : row[1], #str
         'Match #' : row[2], #str
@@ -17,7 +22,7 @@ for string in strings:
     #Positional Data (pt. 1) 
         'On Field' : bool(row[4]), #bool
         'Left Tarmac' : bool(row[5]), #bool
-        'Auto Cargo Collected': row[6].split('/'), #List 
+        'Auto Cargo Collected': auto_cargo, #List 
     #Numerical Data
         'Auto Upper' : int(row[7]), #int
         'Auto Lower' : int(row[8]), #int
