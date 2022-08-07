@@ -1,0 +1,5 @@
+env/
+__pycache__/
+assets/
+test.py
+bckup_data.py
