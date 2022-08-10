@@ -1,0 +1,26 @@
+body{
+  background-color: white;
+  color: black;
+}
+
+h3 { 
+    display: inline;
+}
+
+/* STYLE BUTTON */
+button { 
+  margin-top: 5px;
+}
+
+.increment{
+  height: 50px;
+  width: 200px;
+}
+.decrement{
+  height: 30px;
+  width: 10px;
+}
+.dark_mode{
+  background-color: black;
+  color: lightgray;
+}
