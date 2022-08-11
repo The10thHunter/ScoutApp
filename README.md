@@ -4,7 +4,7 @@ FRC Scouting App, being made by a group of current FRC students. The app creates
 
 ## Setup - HTML
 
-Install Apache2 and configure the website according to your specifications. This guide from [Ubuntu] (https://ubuntu.com/tutorials/install-and-configure-apache#1-overview) works well. We'd recommend placing the website on a constantly running computer, not a laptop. The website, while designed to run without the central server, is dependant on the server if a scout closes or reloads the tab. The website is designed to work in "competition circumstances" which means that we are assuming a scout will at some point have internet but won't have consistent access. 
+Install Apache2 and configure the website according to your specifications. This guide from [Ubuntu](https://ubuntu.com/tutorials/install-and-configure-apache#1-overview) works well. We'd recommend placing the website on a constantly running computer, not a laptop. The website, while designed to run without the central server, is dependant on the server if a scout closes or reloads the tab. The website is designed to work in "competition circumstances" which means that we are assuming a scout will at some point have internet but won't have consistent access. 
 
 ## Setup - Python
 
