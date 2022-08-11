@@ -44,10 +44,12 @@ high_score_index = per_match_total.index(high_score)
 
 low_score = min(per_match_total)
 low_score_index = per_match_total.index(low_score)
+
+filtered_cargo = list(set(tuple(sorted(lst)) for lst in data.auto_cargo))
 #Print
 
 compiled_dict = {
-    'Team #': data.usr_input[1],
+    'Input': data.usr_input[1],
     'Taxi %': data.team_cluster['Left Tarmac'].value_counts(normalize = True).mul(100).astype(str) + '%',
     'Made to field %' : data.team_cluster['On Field'].value_counts(normalize = True).mul(100).astype(str) + '%',
     'Best Climb': best_climb,
@@ -56,7 +58,6 @@ compiled_dict = {
     'Lowest Possible Score': min_calc_score,
     'Best Match': data.match_num[high_score_index],
     'Lowest Match': data.match_num[low_score_index],
-    'Balls Collected': set(data.auto_cargo),
+    'Balls Collected': filtered_cargo,
     }
-compiled_df = pd.DataFrame.from_dict(compiled_dict)
-print(compiled_df)
+print(compiled_dict)

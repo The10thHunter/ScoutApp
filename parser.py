@@ -45,5 +45,4 @@ for string in strings:
         'Played Defense' : bool(row[23])} #bool
     new_row = pd.DataFrame.from_dict(row_dict, orient = 'Columns')
     data = pd.concat([data, new_row])
-data = data.drop_duplicates()
 data = data.sort_values(by='Match #')
