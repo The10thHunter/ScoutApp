@@ -1,4 +1,4 @@
-# ScoutApp2022
+# FRC Scout App
 ## Quick guide: 
 FRC Scouting App, being made by a group of current FRC students. The app creates data through an HTML website which uses script.js, index.html, and the assets directory to record data and then export the string via QR Code. The scouts access it by placing the files into an Apache webserver. After you have all the strings from the scouts' QR codes, you place them in a "strings.txt" file and then place all the following files along side  it: parser.py, data.py, compiler.py. Then run the following command in order to output the data: 	python3 compiler.py
 
