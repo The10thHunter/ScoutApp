@@ -5,9 +5,12 @@ entries = len(data.match_num)
 #If no entries error: print(entries)
 climb = data.climb 
 
-avg_total_score = ((2*(2*(sum(data.auto_upper)) + sum(data.auto_lower)) + 
+try:
+    avg_total_score = ((2*(2*(sum(data.auto_upper)) + sum(data.auto_lower)) + 
     (2*(sum(data.teleop_upper)) + sum(data.teleop_lower))) + sum(climb)) / entries
-
+except: 
+    print("There aren't any entries under that team number, try a different team")
+    exit()
 #Percentage shortcut func
 def percent(*inpt):
     inpt = list(inpt)
@@ -60,4 +63,5 @@ compiled_dict = {
     'Lowest Match': data.match_num[low_score_index],
     'Balls Collected': filtered_cargo,
     }
-print(compiled_dict)
+#print(compiled_dict)
+compiled_df = pd.DataFrame.to_dict(compiled_dict)

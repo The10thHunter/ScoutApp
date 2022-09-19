@@ -2,12 +2,11 @@ import pandas as pd
 
 strings_txt = open('strings.txt').read()
 strings = strings_txt.split(',')
-del strings[-1]
+del strings[-1] 
 data = pd.DataFrame()
 
 for string in strings:
     row = string.split('.')
-
     auto_cargo = []
     for ball in row[6]:
         ball = ball.split('/')
@@ -44,5 +43,9 @@ for string in strings:
         'Broken Drive' : bool(row[22]), #bool
         'Played Defense' : bool(row[23])} #bool
     new_row = pd.DataFrame.from_dict(row_dict, orient = 'Columns')
+    try:
+        data = pd.concat([data, new_row])
+    except: 
+        pd.DataFrame()
     data = pd.concat([data, new_row])
 data = data.sort_values(by='Match #')
