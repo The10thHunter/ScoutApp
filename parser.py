@@ -1,18 +1,22 @@
-import pandas as pd
+import pandas as pd  
+f_strings = auto_cargo = row_list = []
 
-strings_txt = open('strings.txt').read()
-strings = strings_txt.split(',')
-del strings[-1] 
-data = pd.DataFrame()
-
+with open('strings.txt', 'r') as strings_txt: 
+    strings = strings_txt.read()
+strings = strings.split(',')
+del strings[-1]
+f_strings = []
 for string in strings:
-    row = string.split('.')
+    string = string.split('.')
+    #print(string)
+    f_strings.append(string)
+
+for row in f_strings:
     auto_cargo = []
     for ball in row[6]:
         ball = ball.split('/')
         auto_cargo.append(ball)
-
-    row_dict = {
+    row_dict =  { 
     #Match Data
         'Scout ID' : row[0], #str
         'Team #' : row[1], #str
@@ -21,7 +25,8 @@ for string in strings:
     #Positional Data (pt. 1) 
         'On Field' : bool(row[4]), #bool
         'Left Tarmac' : bool(row[5]), #bool
-        'Auto Cargo Collected': auto_cargo, #List 
+    #Fix below | Intentional placeholder    
+        'Auto Cargo Collected': str(auto_cargo), #List 
     #Numerical Data
         'Auto Upper' : int(row[7]), #int
         'Auto Lower' : int(row[8]), #int
@@ -42,10 +47,6 @@ for string in strings:
         'Uncontrolled Crashing' : bool(row[21]), #bool
         'Broken Drive' : bool(row[22]), #bool
         'Played Defense' : bool(row[23])} #bool
-    new_row = pd.DataFrame.from_dict(row_dict, orient = 'Columns')
-    try:
-        data = pd.concat([data, new_row])
-    except: 
-        pd.DataFrame()
-    data = pd.concat([data, new_row])
-data = data.sort_values(by='Match #')
+    row_list.append(row_dict)
+data = pd.DataFrame(row_list)
+print(data)
