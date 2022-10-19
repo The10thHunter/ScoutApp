@@ -1,5 +1,9 @@
 import pandas as pd  
-f_strings = auto_cargo = row_list = []
+import numpy as np 
+
+f_strings = []
+auto_cargo = []
+row_list = []
 
 with open('strings.txt', 'r') as strings_txt: 
     strings = strings_txt.read()
@@ -16,6 +20,18 @@ for row in f_strings:
     for ball in row[6]:
         ball = ball.split('/')
         auto_cargo.append(ball)
+    if row[14] == 'traversal':
+        climb_score = 15
+    elif row[14] == 'high':
+        climb_score = 10
+    elif row[14] == 'middle':
+        climb_score = 6
+    elif row[14] == 'low':
+        climb_score = 4
+    else:
+        climb_score = 0
+
+    
     row_dict =  { 
     #Match Data
         'Scout ID' : row[0], #str
@@ -37,6 +53,7 @@ for row in f_strings:
         'Scored LP' : bool(row[12]), #bool
         'Scored Other' : bool(row[13]), #bool
         'Climb State' : row[14], #str
+        'Climb Score' : climb_score,
     #Other stuff
         'Normal Foul' : bool(row[15]), #bool
         'Tech Foul' : bool(row[16]), #bool
