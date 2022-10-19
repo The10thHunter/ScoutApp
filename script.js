@@ -7,6 +7,7 @@ document.getElementById("generate_qr").addEventListener("click", function(){
 document.getElementById("clear").addEventListener("click", clear);
 document.getElementById("copy").addEventListener("click", function(){
     gather();
+    document.getElementById("display").innerHTML = data;
     if (document.queryCommandSupported && document.queryCommandSupported("copy")) {
         var textarea = document.createElement("textarea");
         textarea.textContent = data;
