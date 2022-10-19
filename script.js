@@ -1,6 +1,9 @@
 var data = "";
 
-document.getElementById("generate_qr").addEventListener("click", gather);
+document.getElementById("generate_qr").addEventListener("click", function(){
+    gather();
+    generateQRCode();
+});
 document.getElementById("clear").addEventListener("click", clear);
 document.getElementById("copy").addEventListener("click", function(){
     gather();
@@ -281,16 +284,6 @@ function gather(){
     data += boolToChar(drivetrain_object) + "."; //char: "t" or "f"
     data += boolToChar(defense_object) + "."; //char: "t" or "f"
     //document.getElementById("display").innerHTML = data; 
-    var count = 0;
-    for(let i = 0; i < data.length; i++){
-        if(data.charAt(i) == '.'){
-            count++;
-        }
-        if(count == 24){  
-            generateQRCode(data.substring(0, i) + ",");
-            break;
-        }
-    }
 }
 
 function climbLevel(){
@@ -348,7 +341,18 @@ function clear(){
     data = "";
 }
 
-function generateQRCode(str){
+function generateQRCode(){
+    str = ""
+    var count = 0;
+    for(let i = 0; i < data.length; i++){
+        if(data.charAt(i) == '.'){
+            count++;
+        }
+        if(count == 24){  
+            str = data.substring(0, i) + ",";
+            break;
+        }
+    }
     //print(str);
     //https://github.com/davidshimjs/qrcodejs/blob/master/README.md
     new QRCode(document.getElementById("display"), str);
