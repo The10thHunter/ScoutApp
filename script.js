@@ -2,6 +2,26 @@ var data = "";
 
 document.getElementById("generate_qr").addEventListener("click", gather);
 document.getElementById("clear").addEventListener("click", clear);
+document.getElementById("copy").addEventListener("click", function(){
+    gather();
+    if (document.queryCommandSupported && document.queryCommandSupported("copy")) {
+        var textarea = document.createElement("textarea");
+        textarea.textContent = data;
+        textarea.style.position = "fixed";  // Prevent scrolling to bottom of page in Microsoft Edge.
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            return document.execCommand("copy");  // Security exception may be thrown by some browsers.
+        }
+        catch (ex) {
+            console.warn("Copy to clipboard failed.", ex);
+            return prompt("Copy to clipboard: Ctrl+C, Enter", text);
+        }
+        finally {
+            document.body.removeChild(textarea);
+        }
+    }
+});
 
 document.getElementById("dark_mode").addEventListener("click", function(){
   var element = document.body;
@@ -99,11 +119,12 @@ red_object.addEventListener("click", function(){red_object.disabled = true;});
 
 //flags
 var crashing_object = document.getElementById("crashing");
-var opposing_object = document.getElementById("opposing");
+//var opposing_object = document.getElementById("opposing");
 var drivetrain_object = document.getElementById("drivetrain");
 var defense_object = document.getElementById("defense");
 
 crashing_object.addEventListener("click", function(){crashing_object.disabled = true;});
+//opposing_object.addEventListener("click", function(){opposing_object.disabled = true;});
 drivetrain_object.addEventListener("click", function(){drivetrain_object.disabled = true;});
 defense_object.addEventListener("click", function(){defense_object.disabled = true;});
 
@@ -234,6 +255,7 @@ var robotPresent = document.getElementById("robot_present");
 var exitedTarmac = document.getElementById("exited_tarmac");
 
 function gather(){
+    data = "";
     data += scoutName.value + "."; //string
     data += teamNumber.value + "."; //number
     data += matchNumber.value + "."; //number
