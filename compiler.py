@@ -51,9 +51,10 @@ for team in teams_scouted:
 teams_compiled = pd.DataFrame(data = compiled_team_data)
 
 #Match Analysis
+'''
 teams = input("Input teams (,):")
 teams = teams.split(',')
 
-'''Teams are seperated by [0], [1], [2] as A1 and [3], [4], and [5] as A2'''
-
-
+A1 = [teams[0], teams[1], teams[2]]
+A2 = [teams[3], teams[4], teams[5]]
+'''
