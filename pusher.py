@@ -19,3 +19,8 @@ except:
 #Insert your Gmail in sensitive.py
 sheet.share(sensitive.real_email, perm_type = 'user', role = 'writer')
 worksheet.update([parser.data.columns.values.tolist()] + parser.data.values.tolist())
+try: 
+    worksheet = sheet.worksheet('Compiled - Teams')
+except: 
+    worksheet = sheet.add_worksheet(title = 'Compiled - Teams', rows = 100, cols = 10)
+worksheet.update([compiler.teams_compiled.columns.values.tolist()] + compiler.teams_compiled.values.tolist())
