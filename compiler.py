@@ -3,8 +3,9 @@ import numpy as np
 import parser
 compiled_team_data = []
 
-def percent(inpt):
-    outpt = (str(inpt*100) + '%')
+def percent(*inpt):
+    inpt = inpt*100
+    outpt = str(inpt) + '%'
 teams_scouted = parser.data['Team #'].values.tolist()
 #Team Analysis:
 for team in teams_scouted:
@@ -25,19 +26,18 @@ for team in teams_scouted:
     min_score = min(score_list)
     #min_nonzero_score = sorted_scores[1]
     avg_score = sum(score_list) / len(score_list)
-    consistency_margin = percent(min_score / max_score)
+    consistency_margin = percent(((float(min_score)) / (float(max_score))))
 
     for a, b in zip(teleop_upper, teleop_lower):
         outpt = 2*a + b
         teleop_scores.append(outpt)
     
     max_teleop = max(teleop_scores)
-    avg_teleop = sum(teleop_scores) / len(teleop_scores)
+    avg_teleop = float(sum(teleop_scores)) / len(teleop_scores)
     min_teleop = min(teleop_scores)
-    teleop_percent = avg_teleop / avg_score
+    teleop_percent = percent(avg_teleop / avg_score)
 
     compiled_team = {
-            'Highest Score' : max_score,
             'Lowest Score' : min_score,
             'Average Scores' : avg_score,
             'Consistency %' : consistency_margin,
@@ -45,11 +45,20 @@ for team in teams_scouted:
             'Max Cycle Time' : (max_teleop / 120),
             'Average Cycle Time' : (avg_teleop / 120),
             'Min Cycle Time' : (min_teleop / 120),
+            'Highest Climb' : max(climb_score)
             }
     compiled_team_data.append(compiled_team)
     
 teams_compiled = pd.DataFrame(data = compiled_team_data)
+print(teams_compiled)
 
+#Match Validator 
+'''
+for match in max(parser.data['Match #'].values.tolist()):
+    match_data = parser.data.loc[parser.data['Match #'] == match]
+    print(match)
+    print(match_data)
+'''
 #Match Analysis
 '''
 teams = input("Input teams (,):")

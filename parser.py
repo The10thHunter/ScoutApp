@@ -42,18 +42,20 @@ for row in f_strings:
         'On Field' : bool(row[4]), #bool
         'Left Tarmac' : bool(row[5]), #bool
     #Fix below | Intentional placeholder    
-        'Auto Cargo Collected': str(auto_cargo), #List 
+    #   'Auto Cargo Collected': str(auto_cargo), #str
     #Numerical Data
         'Auto Upper' : int(row[7]), #int
         'Auto Lower' : int(row[8]), #int
         'Teleop Upper' : int(row[9]), #int
         'Teleop Lower' : int(row[10]), #int
+    #Modded Attempted Cargo for paper scout compatibility
+        'Attempted Cargo' : (int(row[19]) + int(row[20])),
     #Positional Data (pt.2)
         'Scored Tarmac' : bool(row[11]), #bool
         'Scored LP' : bool(row[12]), #bool
         'Scored Other' : bool(row[13]), #bool
         'Climb State' : row[14], #str
-        'Climb Score' : climb_score,
+    #   'Climb Score' : climb_score,
     #Other stuff
         'Normal Foul' : bool(row[15]), #bool
         'Tech Foul' : bool(row[16]), #bool
