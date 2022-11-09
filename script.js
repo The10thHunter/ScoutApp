@@ -1,3 +1,4 @@
+<script src="script.js" type="text/javascript"></script>
 var data = "";
 
 document.getElementById("generate_qr").addEventListener("click", function () {
