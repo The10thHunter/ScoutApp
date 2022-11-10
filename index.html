@@ -185,8 +185,9 @@
         </div> <br>
 
         <div>
-            <button id="generate_qr">Generate QR Code</button>
+            <button id="generate_qr" onclick="gather()">Generate QR Code</button>
             <button id="clear">Clear</button>
+            <button id="copy">Copy</button>
             <div id="display"></div>
         </div>
     </main>
@@ -425,7 +426,7 @@
             data = "";
         });
 
-        document.getElementById("generate_qr").addEventListener("click", function () {
+        function gather() {
             data = "";
             data += scoutName.value + "."; //string
             data += teamNumber.value + "."; //number
@@ -462,7 +463,7 @@
                     break;
                 }
             }
-        });
+        };
 
         function climbLevel() {
             if (none.disabled) {
@@ -510,6 +511,27 @@
             new QRCode(document.getElementById("display"), str);
         };
 
+        document.getElementById("copy").addEventListener("click", function () {
+            gather();
+            document.getElementById("display").innerHTML = data;
+            if (document.queryCommandSupported && document.queryCommandSupported("copy")) {
+                var textarea = document.createElement("textarea");
+                textarea.textContent = data;
+                textarea.style.position = "fixed";  // Prevent scrolling to bottom of page in Microsoft Edge.
+                document.body.appendChild(textarea);
+                textarea.select();
+                try {
+                    return document.execCommand("copy");  // Security exception may be thrown by some browsers.
+                }
+                catch (ex) {
+                    console.warn("Copy to clipboard failed.", ex);
+                    return prompt("Copy to clipboard: Ctrl+C, Enter", text);
+                }
+                finally {
+                    document.body.removeChild(textarea);
+                }
+            }
+        });
     </script>
 
 </body>
