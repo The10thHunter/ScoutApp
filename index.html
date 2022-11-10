@@ -191,7 +191,7 @@
         </div>
     </main>
 
-    <!--<script defer src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>-->
+    <script defer src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 
     <script>
 
@@ -242,15 +242,12 @@
         var drivetrain_object = document.getElementById("drivetrain");
         var defense_object = document.getElementById("defense");
 
-
-
-
         document.getElementById("dark_mode").addEventListener("click", function () {
             var element = document.body;
             element.classList.toggle("dark_mode");
         });
 
-        function inc_auton_high() { console.log(auton_high_scored); auton_high_scored++; document.getElementById("auton_high").innerHTML = auton_high_scored; };
+        function inc_auton_high() { auton_high_scored++; document.getElementById("auton_high").innerHTML = auton_high_scored; };
         function dec_auton_high() { if (auton_high_scored > 0) { auton_high_scored--; document.getElementById("auton_high").innerHTML = auton_high_scored; } };
 
         function inc_auton_low() { auton_low_scored++; autonLow.innerHTML = auton_low_scored; };
@@ -402,7 +399,7 @@
 
 
         document.getElementById("clear").addEventListener("click", function () {
-            console.log(":)");
+            //console.log(":)");
             teamNumber.value = 0;
             var nextMatch = parseInt(matchNumber.value);
             matchNumber.value = nextMatch;
@@ -510,7 +507,7 @@
             }
             console.log(str);
             //https://github.com/davidshimjs/qrcodejs/blob/master/README.md
-            //new QRCode(document.getElementById("display"), str);
+            new QRCode(document.getElementById("display"), str);
         };
 
     </script>
