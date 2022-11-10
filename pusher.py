@@ -2,13 +2,15 @@ import pandas as pd
 import sensitive, parser, gspread
 #Change the file path to general later, perhaps even find a way to get the pwd of the running terminal 
 gc = gspread.service_account()
-try: 
-    #Insert your URL below in the quotes
-    sheet = gc.open_by_url(sensitive.sheet_url)
+#try: 
+    #Insert your URL below in sensitive.py
+sheet = gc.open_by_url(sensitive.sheet_url)
+'''
 except: 
     print('No Google Sheet detected. Creating new...')
     sheet = gc.create('Scout App - Results')
     print(sheet.url)
+'''
 try:
     worksheet = sheet.worksheet('Scout App Data')
 except: 
