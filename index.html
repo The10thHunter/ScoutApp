@@ -276,12 +276,12 @@
             other.disabled = false;
         }
 
-        function no_climb() { none.disabled = true; };
-        function attempted_climb() { attempted.disabled = true; };
-        function low_climb() { low.disabled = true; };
-        function mid_climb() { middle.disabled = true; };
-        function high_climb() { high.disabled = true; };
-        function traversal_climb() { traversal.disabled = true; };
+        function no_climb() { resetClimb(); none.disabled = true; };
+        function attempted_climb() { resetClimb(); attempted.disabled = true; };
+        function low_climb() { resetClimb(); low.disabled = true; };
+        function mid_climb() { resetClimb(); middle.disabled = true; };
+        function high_climb() { resetClimb(); high.disabled = true; };
+        function traversal_climb() { resetClimb(); traversal.disabled = true; };
 
         function resetClimb() {
             none.disabled = false;
